@@ -39,7 +39,6 @@ void Creat_Acount(user_acount **head_ref) {
     }
 }
 
-
 /*
  * Prototype   : void Data(user_acount *temp);
  * Description : The Data that will be Entered Each Time Create New User (Node)
@@ -80,7 +79,6 @@ void Data(user_acount *temp) {
     temp->Next = NULL;
     PrintN(temp);
 }
-
 
 /*
  * Prototype   : void PrintN(user_acount *Nod);
