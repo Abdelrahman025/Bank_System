@@ -81,6 +81,7 @@ void Data(user_acount *temp) {
     PrintN(temp);
 }
 
+
 /*
  * Prototype   : void PrintN(user_acount *Nod);
  * Description : To Print The User_Bank_ID  and The User_Password
