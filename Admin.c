@@ -89,10 +89,8 @@ void Data(user_acount *temp) {
  */
 void PrintN(user_acount *Nod) {
     printf("\n\n********************************************************\n");
-    printf("********         user_Bank_ID = %lu      ********\n",
-           Nod->Bank_ACC_ID);
-    printf("********         user_Pass    = %lu           ********\n",
-           Nod->Pass);
+    printf("********         user_Bank_ID = %lu      ********\n",Nod->Bank_ACC_ID);
+    printf("********         user_Pass    = %lu           ********\n",Nod->Pass);
     printf("********************************************************\n\n\n");
 }
 
@@ -166,47 +164,29 @@ void Make_Transaction(user_acount *curr, user_acount *head) {
         while (Tran != NULL) {
             if (Tran->Bank_ACC_ID == ID_Transaction) {
                 if (Tran->Account_Status == 'A') {
-                    printf(
-                        "\nPlease enter amount of money to transfer it to "
-                        "the this account ");
+                    printf("\nPlease enter amount of money to transfer it to the this account ");
                     scanf("%lu", &Money_Trans);
                     if (curr->Balance > Money_Trans) {
                         curr->Balance = curr->Balance - Money_Trans;
                         Tran->Balance = Tran->Balance + Money_Trans;
-                        printf(
-                            "\n\n---------          The Transaction Is done    "
-                            "     --------- \n");
-                        printf("---------     The Transaction Money is %lu \n",
-                               Money_Trans);
-                        printf("---------     Your Balance Now is %lu \n",
-                               curr->Balance);
-                        printf(
-                            "---------     The Balance Of Account you send "
-                            "Money Now is %lu \n\n\n",
-                            Tran->Balance);
+                        printf("\n\n---------          The Transaction Is done         --------- \n");
+                        printf("---------     The Transaction Money is %lu \n",Money_Trans);
+                        printf("---------     Your Balance Now is %lu \n",curr->Balance);
+                        printf("---------     The Balance Of Account you send Money Now is %lu \n\n\n",Tran->Balance);
                     } else {
-                        printf(
-                            "\nThe Transaction is Falled Please Checke Your "
-                            "Money \n");
+                        printf("\nThe Transaction is Falled Please Checke Your Money \n");
                         break;
                     }
                     break;
                 } else {
-                    printf(
-                        "\n*****   The Account_Status is '%c' make sure The "
-                        "Account you "
-                        "want to send the money is 'A'ctive   *****\n",
-                        Tran->Account_Status);
+                    printf("\n*****   The Account_Status is '%c' make sure The Account you want to send the money is 'A'ctive   *****\n",Tran->Account_Status);
                     break;
                 }
             }
             Tran = Tran->Next;
         }
     } else {
-        printf(
-            "\n\nThe Bank Account_Status Is '%c' Please Make sure your Account "
-            "Is 'A'ctive\n",
-            curr->Account_Status);
+        printf("\n\nThe Bank Account_Status Is '%c' Please Make sure your Account Is 'A'ctive\n",curr->Account_Status);
     }
 }
 
@@ -252,13 +232,11 @@ void Get_Cash(user_acount *curr) {
     scanf("%lu", &Cash);
     if (curr->Balance > Cash) {
          printf("\n       ---------------------------------------\n");
-        printf("-------    Your Cash Before operation %lu    --------\n",
-               curr->Balance);
+        printf("-------    Your Cash Before operation %lu    --------\n",curr->Balance);
         printf("       ---------------------------------------\n\n");
         curr->Balance = curr->Balance - Cash;
         printf("\n       ---------------------------------------\n");
-        printf("-------    Your Cash After operation %lu    --------\n",
-               curr->Balance);
+        printf("-------    Your Cash After operation %lu    --------\n",curr->Balance);
         printf("       ---------------------------------------\n\n");
     } else {
         printf("Cant Complete Please Cheak Your Money");
@@ -277,12 +255,10 @@ void Deposit_in_Account(user_acount *curr) {
     printf("\nPlease Enter Your Deposit ");
     scanf("%lu", &Dep);
         printf("\n      ---------------------------------------\n");
-    printf("-------    Your Cash Before Deposit %lu    -------\n",
-           curr->Balance);
+    printf("-------    Your Cash Before Deposit %lu    -------\n",curr->Balance);
     printf("      ---------------------------------------\n");
     curr->Balance = curr->Balance + Dep;
     printf("\n      ---------------------------------------\n");
-    printf("-------    Your Cash After Deposit %lu    -------\n",
-           curr->Balance);
+    printf("-------    Your Cash After Deposit %lu    -------\n",curr->Balance);
     printf("      ---------------------------------------\n");
 }
