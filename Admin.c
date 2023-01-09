@@ -61,14 +61,14 @@ void Data(user_acount *temp) {
     }
     printf("Please Enter Address ");
     scanf(" %[^\n]", temp->Address);
-    while (strlen(temp->ID) < 14) {
+    while (strlen(temp->ID) < 14 || strlen(temp->ID) > 14) {
         printf("Please Enter ID It Should be 14 Digits ");
         scanf("%s", temp->ID);
     }
     printf("Please Enter age ");
     scanf("%hu", &temp->age);
     if (temp->age < 21) {
-        while (strlen(temp->Guardian_ID) < 14) {
+        while (strlen(temp->Guardian_ID) < 14 || strlen(temp->ID) > 14) {
             printf("Please Enter Guardian_ID It Should be 14 Digits ");
             scanf("%s", temp->Guardian_ID);
         }
