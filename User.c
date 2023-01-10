@@ -79,13 +79,14 @@ void Search_User(user_acount *head_ref, uint32 ID) {
  */
 void Make_Transaction_user(user_acount *curr, user_acount *head) {
     user_acount *Tran = head;
+    uint16 fl=1;
     uint32 ID_Transaction;
     uint32 Money_Trans;
     if (curr->Account_Status == 'A') {
         printf("\nPlease Enter Bank Account ID It Must Be 10 Digits ");
         scanf("%lu", &ID_Transaction);
         while (Tran != NULL) {
-            if (Tran->Bank_ACC_ID == ID_Transaction) {
+            if (Tran->Bank_ACC_ID == ID_Transaction && curr->Bank_ACC_ID !=ID_Transaction) {
                 if (Tran->Account_Status == 'A') {
                     printf("\nPlease enter amount of money to transfer it to the this account ");
                     scanf("%lu", &Money_Trans);
@@ -99,17 +100,23 @@ void Make_Transaction_user(user_acount *curr, user_acount *head) {
                         //     "---------     The Balance Of Account you send "
                         //     "Money Now is %lu \n\n\n",
                         //     Tran->Balance);
+                        fl=0;
                     } else {
                         printf("\nThe Transaction is Falled Please Checke Your Money \n");
+                        fl=0;
                         break;
                     }
                     break;
                 } else {
                     printf("*****   The Account_Status is '%c' make sure The Account you want to send the money is 'A'ctive   *****\n",Tran->Account_Status);
+                    fl=0;
                     break;
                 }
+                fl=0;
             }
             Tran = Tran->Next;
+        }if (fl ==1){
+            printf("\nThe account not valid \n\n");
         }
     } else {
         printf("\n\nThe Bank Account_Status Is '%c' Please Make sure your Account Is 'A'ctive\n",curr->Account_Status);
