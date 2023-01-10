@@ -108,7 +108,7 @@ void Make_Transaction_user(user_acount *curr, user_acount *head) {
                     }
                     break;
                 } else {
-                    printf("*****   The Account_Status is '%c' make sure The Account you want to send the money is 'A'ctive   *****\n",Tran->Account_Status);
+                    printf("\n*****   The Account_Status is '%c' make sure The Account you want to send the money is 'A'ctive   *****\n",Tran->Account_Status);
                     fl=0;
                     break;
                 }
